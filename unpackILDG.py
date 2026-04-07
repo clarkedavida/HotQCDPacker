@@ -73,6 +73,7 @@ for i in range(len(mstep)):
     info  = mstep[i]
     traj  = info['update']
     conf  = f'{enslabel}_{series}.{traj}'
+    logger.info(f'  {conf}')
     shell(f'cat {conf}.header {conf}.naked > {conf}')
 
 
