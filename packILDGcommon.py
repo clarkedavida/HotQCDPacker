@@ -39,6 +39,7 @@ MACHINE               = 'Perlmutter'                             # Machine where
 MACHINE_TYPE          = 'NVIDIA A100'
 MACHINE_INSTITUTE     = 'NERSC'
 MACHINE_COMMENT       = None
+SEQUENCE_COMMENT      = 'crcChecksum fields here are the NERSC checksums.'
 PROJECT_NAME          = 'f21_highTspf'
 NF                    = '21'
 RHMC_PARAMFILE        = 'in.run_scratch'                         # Name of the SIMULATeQCD RHMC parameter file
