@@ -22,8 +22,8 @@ from latqcdtools.base.fileSystem import ls, rm, cd, getFileSize, getFileTimeStam
 from latqcdtools.interfaces.collaborations import HotQCDParams, paramFromEnsLabel
 import latqcdtools.base.logger as logger
 
-from QCDmlUtils import checkEnsembleProfile, checkConfigProfile, makeURI, makeLFN
-from QCDmlWrite import writeQCDmlEnsembleFile, writeQCDmlConfigFile
+from createQCDml.QCDmlUtils import checkEnsembleProfile, checkConfigProfile, makeURI, makeLFN
+from createQCDml.QCDmlWrite import writeQCDmlEnsembleFile, writeQCDmlConfigFile
 import createQCDml.profiles.treeLevelSymanzikInfo as gActInfo
 import createQCDml.profiles.HISQInfo as qActInfo
 

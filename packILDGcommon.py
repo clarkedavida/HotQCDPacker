@@ -24,8 +24,8 @@ import latqcdtools.base.logger as logger
 ARCHIVER              = 'David Anthony Clarke'
 ARCHIVER_INSTITUTION  = 'Bielefeld University'
 ARCHIVER_ORCID        = '0000-0002-5570-0894'
-TIME_NOW              = '/home/dclarke/Desktop/RESEARCH/bie/infrastructure_PUNCH4NFDI/packHOTQCDplayground/hubert-mtime.pl'         # Gets current time
-ILDGBINARY            = '/home/dclarke/Desktop/RESEARCH/bie/infrastructure_PUNCH4NFDI/packHOTQCDplayground/try-binary/ildg-binary'  # LIME packer
+TIME_NOW              = '/home/dclarke/HotQCDPacker/hubert-mtime.pl'         # Gets current time
+ILDGBINARY            = '/home/dclarke/try-binary/ildg-binary'  # LIME packer
 GENERATOR             = 'Luis Altenkort'
 GENERATOR_INSTITUTION = 'Bielefeld University'
 GENERATOR_ORCID       = '0000-0001-9382-0208'
@@ -70,9 +70,9 @@ FUNDING_AWARDNOS      = [
 #
 ILDGPACKER       = 'ILDG_pack.bash'
 ILDGUNPACKER     = 'ILDG_unpack.bash'
-XMLVALIDATOR     = '/home/dclarke/Desktop/RESEARCH/bie/infrastructure_PUNCH4NFDI/packHOTQCDplayground/xml/doValidate.bash'
-SCHEMA_ENS       = '/home/dclarke/Desktop/RESEARCH/bie/infrastructure_PUNCH4NFDI/packHOTQCDplayground/xml/QCDmlEnsemble2.0.0.xsd'
-SCHEMA_CONF      = '/home/dclarke/Desktop/RESEARCH/bie/infrastructure_PUNCH4NFDI/packHOTQCDplayground/xml/QCDmlConfig2.0.0.xsd'
+XMLVALIDATOR     = '/home/dclarke/HotQCDPacker/xml/doValidate.bash'
+SCHEMA_ENS       = '/home/dclarke/HotQCDPacker/xml/QCDmlEnsemble2.0.0.xsd'
+SCHEMA_CONF      = '/home/dclarke/HotQCDPacker/xml/QCDmlConfig2.0.0.xsd'
 COLLABORATION    = "hotqcd"
 MAXLIMESIZEBYTES = byteConvert(200,'GB','B')                        # Hubert says lime files should not exceed 200 GB
 GAUGEFIELD       = 'su3gauge'
@@ -161,7 +161,7 @@ def readHeader(hfile,Ns,Nt) -> dict:
     if not FOUNDEND:
         logger.TBRaise('No END_HEADER')
     if res['DATATYPE'] != '4D_SU3_GAUGE':
-        logger.TBRaise(f'Expected 4D SU(3) gauge configuration. Got {res['DATATYPE']}')
+        logger.TBRaise(f"Expected 4D SU(3) gauge configuration. Got {res['DATATYPE']}")
     for dir in [0,1,2]:
         if res['DIMENSION'][dir] != Ns:
             logger.TBRaise(f'DIMENSION_{dir+1} != {Ns}')

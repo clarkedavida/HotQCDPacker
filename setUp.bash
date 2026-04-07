@@ -8,7 +8,7 @@
 
 CREATEQCDMLFOLDER=/home/${USER}/createQCDml    # Folder where you want to put createQCDml
 CURRENTDIR=$(pwd)
-INSTALLTOOLBOX=true
+INSTALLTOOLBOX=false
 INSTALLQCDML=true
 
 echo "QCDml folder: ${CREATEQCDMLFOLDER}"
