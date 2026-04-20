@@ -24,8 +24,11 @@ import latqcdtools.base.logger as logger
 ARCHIVER              = 'David Anthony Clarke'
 ARCHIVER_INSTITUTION  = 'Bielefeld University'
 ARCHIVER_ORCID        = '0000-0002-5570-0894'
-TIME_NOW              = '/home/dclarke/HotQCDPacker/hubert-mtime.pl'         # Gets current time
-ILDGBINARY            = '/home/dclarke/try-binary/ildg-binary'  # LIME packer
+TIME_NOW              = '/home/dclarke/HotQCDPacker/hubert-mtime.pl'  # Gets current time
+ILDGBINARY            = '/home/dclarke/try-binary/ildg-binary'        # LIME packer
+ILDGMDC               = '/home/dclarke/try-client/try-mdc'            # metadata catalogue
+ILDGFC                = '/home/dclarke/try-client/try-fc'             # file catalogue
+ILDGSE                = '/home/dclarke/try-client/try-se'             # download files from storage element
 GENERATOR             = 'Luis Altenkort'
 GENERATOR_INSTITUTION = 'Bielefeld University'
 GENERATOR_ORCID       = '0000-0001-9382-0208'
