@@ -91,7 +91,7 @@ for conf in ls(f'{enslabel}_{series}*'):
 if lime_size > MAXLIMESIZEBYTES:
     logger.TBError('Lime file should not exceed 200 GB.')
 
-lime_filename = f'{enslabel}_{series}_{min(trajs)}to{max(trajs)}'
+lime_filename = f'{series}_{min(trajs)}to{max(trajs)}'
 
 #
 # Construct the packing command
