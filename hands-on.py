@@ -64,3 +64,13 @@ from latqcdtools.base.utilities import shellVerbose
 #
 # For your purpose, you will need to figure out what SE you are using.
 
+# Finally you have to register the uploaded conf in the file catalogue.
+# try-fc -i <lfn> <surl>
+
+# Now you should be able to see the lattice you uploaded
+# try-se -list <LFN> -lol
+# If you see NEARLINE instead of ONLINE, it is on tape, so you may need to wait
+# for the tape arm to get where it needs to go before your conf is downloaded
+
+
+
