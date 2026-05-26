@@ -11,7 +11,9 @@
 #
 #
 
-token=/home/dclarke/try-client/try-token
+source env.bash
+
+token=${ILDGSERVICEFOLDER}/try-token
 GROUP=/ldg/hotqcd
 
 # Correct way to call as of 20 Apr 2026. Will give READ, MODIFY, and WRITE

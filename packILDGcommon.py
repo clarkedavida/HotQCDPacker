@@ -24,8 +24,6 @@ import latqcdtools.base.logger as logger
 ARCHIVER              = 'David Anthony Clarke'
 ARCHIVER_INSTITUTION  = 'Bielefeld University'
 ARCHIVER_ORCID        = '0000-0002-5570-0894'
-TIME_NOW              = '/home/dclarke/HotQCDPacker/hubert-mtime.pl'         # Gets current time
-ILDGBINARY            = '/home/dclarke/try-binary/ildg-binary'  # LIME packer
 GENERATOR             = 'Luis Altenkort'
 GENERATOR_INSTITUTION = 'Bielefeld University'
 GENERATOR_ORCID       = '0000-0001-9382-0208'
@@ -66,14 +64,28 @@ FUNDING_AWARDNOS      = [
                         None,
                         ]
 
+
+#
+# ! ---- System-specific locations (should be filled in by setUp.bash) ---- !
+#
+HOTQCD_PACK_FOLD = '/home/dclarke/GitHub/HotQCDPacker'
+ILDG_BINARY_FOLD = '/home/dclarke/GitHub/try-binary'
+ILDG_CLIENT_FOLD = '/home/dclarke/GitHub/try-client'
+
+
 #
 # ! ---- The following parameters should not (need to) be adjusted ---- !
 #
-ILDGPACKER       = 'ILDG_pack.bash'
-ILDGUNPACKER     = 'ILDG_unpack.bash'
-XMLVALIDATOR     = '/home/dclarke/HotQCDPacker/xml/doValidate.bash'
-SCHEMA_ENS       = '/home/dclarke/HotQCDPacker/xml/QCDmlEnsemble2.0.0.xsd'
-SCHEMA_CONF      = '/home/dclarke/HotQCDPacker/xml/QCDmlConfig2.0.0.xsd'
+ILDGPACKER       =  'ILDG_pack.bash'
+ILDGUNPACKER     =  'ILDG_unpack.bash'
+ILDGBINARY       = f'{ILDG_BINARY_FOLD}/ildg-binary'                # LIME packer
+ILDGMDC          = f'{ILDG_CLIENT_FOLD}/try-mdc' 
+ILDGFC           = f'{ILDG_CLIENT_FOLD}/try-fc' 
+ILDGSE           = f'{ILDG_CLIENT_FOLD}/try-se' 
+TIME_NOW         = f'{HOTQCD_PACK_FOLD}/hubert-mtime.pl'            # Gets current time
+XMLVALIDATOR     = f'{HOTQCD_PACK_FOLD}/xml/doValidate.bash'
+SCHEMA_ENS       = f'{HOTQCD_PACK_FOLD}/xml/QCDmlEnsemble2.0.0.xsd'
+SCHEMA_CONF      = f'{HOTQCD_PACK_FOLD}/xml/QCDmlConfig2.0.0.xsd'
 COLLABORATION    = "hotqcd"
 MAXLIMESIZEBYTES = byteConvert(200,'GB','B')                        # Hubert says lime files should not exceed 200 GB
 GAUGEFIELD       = 'su3gauge'

@@ -6,30 +6,35 @@
 # Get everything you need to run the HotQCD packer.
 # 
 
+source env.bash
+
 CURRENTDIR=$(pwd)
 
 INSTALLTOOLBOX=false
 INSTALLQCDML=false
 INSTALLILDGBINARY=false
-INSTALLILDGSERVICE=false
+INSTALLILDGSERVICE=true
 
-CREATEQCDMLFOLDER=/home/${USER}/createQCDml # Folder where you want to put createQCDml
-ILDGBINARYFOLDER=/home/${USER}/try-binary   # Folder where you want to put try-binary 
-ILDGSERVICEFOLDER=/home/${USER}/createQCDml # Folder where you want to put try-client 
-
+echo
 echo "Install parameters:"
-echo "    QCDml folder: ${CREATEQCDMLFOLDER}"
-echo "    try-binary folder: ${ILDGBINARYFOLDER}"
-echo "    try-client folder: ${ILDGSERVICEFOLDER}"
+echo "    QCDml folder:            ${CREATEQCDMLFOLDER}"
+echo "    try-binary folder:       ${ILDGBINARYFOLDER}"
+echo "    try-client folder:       ${ILDGSERVICEFOLDER}"
 echo "    Install AnalysisToolbox? ${INSTALLTOOLBOX}"
-echo "    Install createQCDml? ${INSTALLQCDML}"
-echo "    Download ILDG-binary? ${INSTALLILDGBINARY}"
-echo "    Download ILDG-client? ${INSTALLILDGSERVICE}"
+echo "    Install createQCDml?     ${INSTALLQCDML}"
+echo "    Download ILDG-binary?    ${INSTALLILDGBINARY}"
+echo "    Download ILDG-client?    ${INSTALLILDGSERVICE}"
+echo " (Folders can be adjusted in env.bash)"
+echo
 
 read -p "This will install using the above settings. Is that okay? (Y/y to proceed.) "
 if ! [[ $REPLY =~ [Yy]$ ]]; then
     exit
 fi
+
+sed -i "s|^HOTQCD_PACK_FOLD *=.*|HOTQCD_PACK_FOLD = '${CURRENTDIR}'|" packILDGcommon.py
+sed -i "s|^ILDG_BINARY_FOLD *=.*|ILDG_BINARY_FOLD = '${ILDGBINARYFOLDER}'|" packILDGcommon.py
+sed -i "s|^ILDG_CLIENT_FOLD *=.*|ILDG_CLIENT_FOLD = '${ILDGSERVICEFOLDER}'|" packILDGcommon.py
 
 if [ "$INSTALLTOOLBOX" = true ]; then
     echo "AnalysisToolbox: Installing..."
