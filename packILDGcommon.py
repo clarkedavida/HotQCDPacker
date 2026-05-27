@@ -68,9 +68,9 @@ FUNDING_AWARDNOS      = [
 #
 # ! ---- System-specific locations (should be filled in by setUp.bash) ---- !
 #
-HOTQCD_PACK_FOLD = '/home/dclarke/GitHub/HotQCDPacker'
-ILDG_BINARY_FOLD = '/home/dclarke/GitHub/try-binary'
-ILDG_CLIENT_FOLD = '/home/dclarke/GitHub/try-client'
+HOTQCD_PACK_FOLD = '/home/dclarke/HotQCDPacker'
+ILDG_BINARY_FOLD = '/home/dclarke/try-binary'
+ILDG_CLIENT_FOLD = '/home/dclarke/try-client'
 
 
 #
