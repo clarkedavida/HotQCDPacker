@@ -10,6 +10,7 @@ source env.bash
 
 CURRENTDIR=$(pwd)
 
+# Adjust as needed
 INSTALLTOOLBOX=false
 INSTALLQCDML=false
 INSTALLILDGBINARY=false
@@ -32,6 +33,7 @@ if ! [[ $REPLY =~ [Yy]$ ]]; then
     exit
 fi
 
+# Written by Claude. Sorry that it's hard to read.
 sed -i "s|^HOTQCD_PACK_FOLD *=.*|HOTQCD_PACK_FOLD = '${CURRENTDIR}'|" packILDGcommon.py
 sed -i "s|^ILDG_BINARY_FOLD *=.*|ILDG_BINARY_FOLD = '${ILDGBINARYFOLDER}'|" packILDGcommon.py
 sed -i "s|^ILDG_CLIENT_FOLD *=.*|ILDG_CLIENT_FOLD = '${ILDGSERVICEFOLDER}'|" packILDGcommon.py

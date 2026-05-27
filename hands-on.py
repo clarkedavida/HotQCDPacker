@@ -6,7 +6,7 @@
 # Here we try some of the exercises in
 #     https://slides.koutsou.net/ILDG-hands-on-2025-07-08/#1
 # Some of them may require that you get a token. You can do that
-# using setUpToken.bash
+# using getToken.bash
 #
 
 from packILDGcommon import ILDGMDC, ILDGFC, ILDGSE

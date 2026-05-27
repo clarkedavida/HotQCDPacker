@@ -1,37 +1,52 @@
+#!/bin/bash
 #
 # uploadILDG.bash
 #
 # D. Clarke
 #
-# Wrap together the commands needed to upload to ILDG. 
+# Wrap together the commands needed to upload to ILDG.
 #
 
-import sys
-from packILDGcommon import ILDGMDC, ILDGFC, ILDGSE
-from latqcdtools.base.utilities import shellVerbose
-import latqcdtools.base.logger as logger
+source env.bash
 
-SHOWALLOCATIONS = True 
-SE              = 'https://dcache.fz-juelich.de:2880/pnfs/fz-juelich.de/data/ildg'
-ENSXML          = 'l6420f21b7570m003946m01973.xml'
-ALLOC           = 'j-hotqcd'
+ILDGMDC="${ILDGSERVICEFOLDER}/try-mdc"
+ILDGFC="${ILDGSERVICEFOLDER}/try-fc"
+ILDGSE="${ILDGSERVICEFOLDER}/try-se"
+SE='https://dcache.fz-juelich.de:2880/pnfs/fz-juelich.de/data/ildg'
+HOTQCDALLOC='j-hotqcd'
 
+# Get limeXML from user.
+if [ -z "$1" ]; then
+    echo "ERROR: no lime XML file provided. Usage: uploadILDG.bash <limeXML>"
+    exit 1
+fi
+LIMEXML="$1"
 
+# Written by Claude, sorry that this is unreadable.
+LFN=$(sed -n 's|.*<dataLFN>\(.*\)</dataLFN>.*|\1|p' "${LIMEXML}")
+ENS=$(basename "$(sed -n 's|.*<markovChainURI>\(.*\)</markovChainURI>.*|\1|p' "${LIMEXML}")")
+ENSXML="${ENS}.xml"
+LIME=$(basename "${LFN}")
+SURL="${SE}/${LFN#lfn://}"
 
-{ILDGFC} -la
+# A weak check that these variables were actually populated
+for var in LFN ENS ENSXML LIME SURL; do
+    if [ -z "${!var}" ]; then
+        echo "ERROR: ${var} is empty. Check ${LIMEXML}."
+        exit 1
+    fi
+done
 
-export BEARER_TOKEN={BEARER_TOKEN}
+# Upload ensemble and lime XML files
+${ILDGMDC} -ie ${ENSXML}
+${ILDGMDC} -ic ${LIMEXML}
 
-~/try-client/try-mdc -ie {ENSXML}
-~/try-client/try-mdc -ic {LIMEXML} 
-export SE={SE}
+# Upload lime file
+${ILDGSE} -put ${LIME} ${SURL}
 
-#                                            SURL
-~/try-client/try-se -put 1_10010to10140.lime ${SE}/ldg/hotqcd/l6420f21b7570m003946m01973/1_10010to10140.lime
+# Link LFN to SURL
+${ILDGFC} -i ${LFN} ${SURL}
 
-~/try-client/try-fc -i lfn://ldg/hotqcd/f21_highTspf/l6420f21b7570m003946m01973/1_10010to10140.lime ${SE}/ldg/hotqcd/l6420f21b7570m003946m01973/1_10010to10140.lime
-
-~/try-client/try-se -list lfn://ldg/hotqcd/f21_highTspf/l6420f21b7570m003946m01973/1_10010to10140.lime -lol
-
-~/try-client/try-se -lsa {ALLOC}
-
+# See everything that has been uploaded
+#${ILDGSE} -list ${LFN} -lol
+#${ILDGSE} -lsa ${HOTQCDALLOC}
