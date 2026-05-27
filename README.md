@@ -1,14 +1,22 @@
-# pack/unpack ILDG
 
 Here are a bunch of ILDG and Bash scripts to help streamline the upload of
 HotQCD configurations to ILDG.
 
 To use this software, you need
-0. Python 3.9+ (For the AnalysisToolbox)
-1. [createQCDml](https://github.com/clarkedavida/createQCDml)
-2. [AnalysisToolbox](https://github.com/LatticeQCD/AnalysisToolbox)
-3. [try-binary](https://gitlab.desy.de/ildg/hands-on/try-binary)
-4. [try-client](https://gitlab.desy.de/ildg/hands-on/try-client.git)
+1. Python 3.9+ (For the AnalysisToolbox)
+2. [createQCDml](https://github.com/clarkedavida/createQCDml)
+3. [AnalysisToolbox](https://github.com/LatticeQCD/AnalysisToolbox)
+4. [try-binary](https://gitlab.desy.de/ildg/hands-on/try-binary)
+5. [try-client](https://gitlab.desy.de/ildg/hands-on/try-client.git)
+
+The main scripts you will use are 
+1. `packILDG.py` and `unpackILDG.py`
+2. `getToken.bash`
+3. `uploadILDG.bash`
+
+There is also a `convenience` folder with a bunch of Bash wrappers for
+some of the `try-client` commands. These are just to make things easier
+for me. You don't need to use them.
 
 ## Getting started
 

@@ -9,12 +9,6 @@
 
 source env.bash
 
-ILDGMDC="${ILDGSERVICEFOLDER}/try-mdc"
-ILDGFC="${ILDGSERVICEFOLDER}/try-fc"
-ILDGSE="${ILDGSERVICEFOLDER}/try-se"
-SE='https://dcache.fz-juelich.de:2880/pnfs/fz-juelich.de/data/ildg'
-HOTQCDALLOC='j-hotqcd'
-
 # Get limeXML from user.
 if [ -z "$1" ]; then
     echo "ERROR: no lime XML file provided. Usage: uploadILDG.bash <limeXML>"
