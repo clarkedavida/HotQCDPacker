@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# get_ensXML.bash                                                               
+# download_ensXML.bash                                                               
 # 
 # D. Clarke
 # 

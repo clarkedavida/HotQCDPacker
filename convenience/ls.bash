@@ -4,8 +4,18 @@
 # 
 # D. Clarke
 # 
-# List the first 100 files of HotQCD allocation. 
+# Show file with provided LFN. If no LFN provided, show
+# first 100 HotQCD limes. 
 # 
 
 source "$(dirname "$0")/../env.bash"
-${ILDGFC} -lsa ${HOTQCDALLOC} 
+source convenience.bash
+
+LFN="$1"
+
+if [ -z "$LFN" ]; then
+  _bashInfo "No LFN provided, showing first 100 HotQCD limes"
+  ${ILDGFC} -lsa ${HOTQCDALLOC}
+else
+  ${ILDGSE} -list ${LFN} -lol
+fi

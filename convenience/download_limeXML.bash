@@ -1,6 +1,6 @@
 #!/bin/bash
 # 
-# get_limeXML.bash                                                               
+# download_limeXML.bash                                                               
 # 
 # D. Clarke
 # 

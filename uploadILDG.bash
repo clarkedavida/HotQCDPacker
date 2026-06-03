@@ -9,6 +9,8 @@
 
 source env.bash
 
+UPLOADENSEMBLE=false
+
 # Get limeXML from user.
 if [ -z "$1" ]; then
     echo "ERROR: no lime XML file provided. Usage: uploadILDG.bash <limeXML>"
@@ -31,8 +33,12 @@ for var in LFN ENS ENSXML LIME SURL; do
     fi
 done
 
-# Upload ensemble and lime XML files
-${ILDGMDC} -ie ${ENSXML}
+# Optionally upload ensemble XML (only needed for first conf of ens)
+if [ "$UPLOADENSEMBLE" = true ]; then
+    ${ILDGMDC} -ie ${ENSXML}
+fi
+
+# Upload lime XML
 ${ILDGMDC} -ic ${LIMEXML}
 
 # Upload lime file
@@ -41,6 +47,3 @@ ${ILDGSE} -put ${LIME} ${SURL}
 # Link LFN to SURL
 ${ILDGFC} -i ${LFN} ${SURL}
 
-# See everything that has been uploaded
-#${ILDGSE} -list ${LFN} -lol
-#${ILDGSE} -lsa ${HOTQCDALLOC}
