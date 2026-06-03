@@ -4,7 +4,8 @@
 #
 # D. Clarke
 #
-# Wrap together the commands needed to upload to ILDG.
+# Wrap together the commands needed to upload to ILDG. Call with
+#   uploadILDG.bash <lime-xml-file-name>
 #
 
 source env.bash

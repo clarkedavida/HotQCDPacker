@@ -45,9 +45,10 @@ It will extract all configurations on the current directory level.
 
 ## Uploading XML and lime files to ILDG
 To upload to ILDG, you need a HotQCD bearer token. (I assume you already have the necessary permissions
-to get this token. If not, contact one of the HotQCD scientists.) You get this token with
+to get this token. If not, contact one of the HotQCD scientists.) You get this token
+by going into the `convenience` directory and calling 
 ```
-bash getToken.bash
+bash get_token.bash
 ```
 following the instructions it gives you. Once `getToken.bash` gives you the token, export the token.
 Then call
@@ -55,6 +56,28 @@ Then call
 bash uploadILDG.bash <limeXML>
 ```
 where `limeXML` is the QCDml for the lime file you wish to upload.
+
+## Downloading a lime file
+To reconstruct configurations using `unpackILDG.py` you need both the lime file
+and lime XML, as the XML contains some information needed to reconstruct configurations
+into NERSC format. Using the LFN of your lime file, you get download both with
+```
+bash downloadILDG.bash <LFN>
+```
+
+## How was this tested?
+I checked that all 14 NERSC configurations in
+```
+l6420f21b7570m003946m01973_1_10010to10140
+```
+which is part of the `f21_highTspf` project, 
+survived this round trip:
+1. `packILDG.py`
+2. `uploadILDG.bash`
+3. `downloadILDG.bash`
+4. `unpackILDG.py`
+5. `diff` between all unpacked and original configurations
+All configurations are the same according to this.
 
 ## Why is this code part Bash part Python?
 I tried to do everything in Python, I really did. But I couldn't get the upload to work
