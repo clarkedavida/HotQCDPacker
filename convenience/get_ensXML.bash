@@ -1,8 +1,19 @@
 #!/bin/bash
+# 
+# get_ensXML.bash                                                               
+# 
+# D. Clarke
+# 
+# Download the XML file for the ensemble with markovChainURI MC. 
+# 
 
 source "$(dirname "$0")/../env.bash"
+source convenience.bash
 
-MC=mc://ldg/hotqcd/f21_highTspf/l6420f21b7570m003946m01973
+MC="$1"
+
+_checkIfEmpty "MC" "${MC}"
+
 ENS=$(basename "${MC}") 
 ENSXML="${ENS}".xml
 ${ILDGMDC} -o ${ENSXML} -fmt -ge ${MC}

@@ -11,10 +11,11 @@
 #
 #
 
-source env.bash
+source "$(dirname "$0")/../env.bash"
 
 token=${ILDGSERVICEFOLDER}/try-token
-GROUP=/ldg/hotqcd
+#GROUP=/ldg/hotqcd
+GROUP=/hands-on
 
 # Correct way to call as of 20 Apr 2026. Will give READ, MODIFY, and WRITE
 # permissions for uploading of HotQCD configurations to LDG.

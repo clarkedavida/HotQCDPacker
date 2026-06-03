@@ -11,10 +11,10 @@ To use this software, you need
 
 The main scripts you will use are 
 1. `packILDG.py` and `unpackILDG.py`
-2. `getToken.bash`
+2. `convenience/get_token.bash`
 3. `uploadILDG.bash`
 
-There is also a `convenience` folder with a bunch of Bash wrappers for
+In the `convenience` folder there are other Bash wrappers for
 some of the `try-client` commands. These are just to make things easier
 for me. You don't need to use them.
 
@@ -62,4 +62,6 @@ in Python so I gave up and resorted to Bash. My Bash skills are not that great, 
 I needed help from [Claude](https://claude.ai/login) in a couple places. I marked where 
 I used Claude.
 
-
+## More information
+You can learn more about how to use some of the metadata catalogue, file catalogue,
+and storage element commands at https://slides.koutsou.net/ILDG-hands-on-2025-07-08/#1
