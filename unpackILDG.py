@@ -25,7 +25,8 @@ if not limeFile.endswith('.lime'):
     logger.TBError('Must pass a .lime file')
 
 confQCDml = readXML( limeFile.split('.')[0]+'.xml' )
-enslabel  = limeFile.split('_')[0]
+LFN       = confQCDml['gaugeConfiguration']['dataLFN']
+enslabel  = LFN.split('/')[-2]
 ensQCDml  = readXML( enslabel+'.xml' )
 Ns, Nt    = paramsFromEnsQCDml(ensQCDml)
 prec      = confQCDml['gaugeConfiguration']['precision']
