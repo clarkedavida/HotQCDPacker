@@ -30,7 +30,7 @@ GENERATOR_ORCID       = '0000-0001-9382-0208'
 GENERATOR_TIMEZONE    = 'America/Detroit'                        # For conf date. List of zones here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 CONF_REFERENCE        = '10.1103/PhysRevLett.132.051902'         # Reference to paper where conf were first used
 CODE                  = 'SIMULATeQCD'                            # Code used to generate configurations
-CODE_COMMENT          = 'WARNING: Code compile date is a guess'
+CODE_COMMENT          = 'WARNING: Code compile date is a guess'  # Optional. Can set to None if you don't need it.
 CODE_VERSION          = 'UNKNOWN'
 CODE_COMPILEDATE      = '2022-01-01T00:00:00+00:00'              # Unfortunately this is mandatory...
 MACHINE               = 'Perlmutter'                             # Machine where confs were generated
@@ -354,6 +354,8 @@ class limeQCDmlSkeleton():
             self.machineComment = MACHINE_COMMENT 
         if REVISION_COMMENT is not None:
             self.revisionComment = REVISION_COMMENT 
+        if SEQUENCE_COMMENT is not None:
+            self.sequenceComment = SEQUENCE_COMMENT
 
     def appendToSequence(self,update,plaq,cksum,trU):
         """
