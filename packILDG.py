@@ -13,7 +13,6 @@
 #    not exceeding 200 GB.
 # 3. Creates QCDml file for each lime 
 #
-# TODO: Annotation that checksum is not the CRC checksum but the NERSC one
 
 import os, argparse
 
