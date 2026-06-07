@@ -34,10 +34,10 @@ for var in LFN ENS ENSXML LIME SURL; do
     fi
 done
 
-# Optionally upload ensemble XML (only needed for first conf of ens)
-if [ "$UPLOADENSEMBLE" = true ]; then
-    ${ILDGMDC} -ie ${ENSXML}
-fi
+
+# Upload ensemble. This will only work the first time. After that
+# this does nothing, because the XML already exists
+${ILDGMDC} -ie ${ENSXML}
 
 # Upload lime XML
 ${ILDGMDC} -ic ${LIMEXML}

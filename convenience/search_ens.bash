@@ -5,8 +5,13 @@
 # D. Clarke
 # 
 # Search the metadata catalogue for some ensembles with the
-# passed properties. They should be passed as a single string, .e.
+# passed properties. They should be passed as a single string.
+# Searches seem to be based on ensemble QCDml tags.
+#
+# Examples: 
 #   search.bash 'wilsonTmQuarkAction beta=4.05' 
+#   search.bash 'collaboration="hotqcd"' 
+#   search.bash 'projectName="f21_highTspf"' 
 # 
 
 source "$(dirname "$0")/../env.bash"
