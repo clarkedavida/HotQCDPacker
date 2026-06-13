@@ -80,6 +80,14 @@ survived this round trip:
 
 All configurations are the same according to this.
 
+## Are the configurations ILDG-compliant?
+They should be. The code assumes input configurations are in NERSC format, which
+saves in the order `mu`, `x`, `y`, `z`, `t`. ILDG format also saves in the
+order `mu`, `x`, `y`, `z`, `t`. The lime file saves naked binaries along
+with a brief header. The `unpackILDG.py` script mentioned above separates
+this lime file back into NERSC format configurations, as this code is intended
+for use within the HotQCD collaboration, which works primarily in NERSC.
+
 ## Why is this code part Bash part Python?
 I tried to do everything in Python, I really did. But I couldn't get the upload to work
 in Python so I gave up and resorted to Bash. My Bash skills are not that great, so
