@@ -11,7 +11,7 @@
 #
 #
 
-source "$(dirname "$0")/../env.bash"
+source "${HOTQCDPACKER_DIR}/env.bash"
 
 token=${ILDGSERVICEFOLDER}/try-token
 GROUP=/ldg/hotqcd

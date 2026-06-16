@@ -8,8 +8,8 @@
 #   uploadILDG.bash <lime-xml-file-name>
 #
 
-source env.bash
-source "${bashToolsPath}/bashTools.bash"
+source "${HOTQCDPACKER_DIR}/env.bash"
+source "${HOTQCDPACKER_DIR}/convenience/convenience.bash"
 
 # Get limeXML from user.
 if [ -z "$1" ]; then

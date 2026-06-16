@@ -7,8 +7,8 @@
 # Download the XML file for the ensemble with markovChainURI MC. 
 # 
 
-source "$(dirname "$0")/../env.bash"
-source convenience.bash
+source "${HOTQCDPACKER_DIR}/env.bash"
+source "${HOTQCDPACKER_DIR}/convenience/convenience.bash"
 
 MC="$1"
 

@@ -10,7 +10,7 @@
 #   downloadILDG.bash <LFN>
 #
 
-source env.bash
+source "${HOTQCDPACKER_DIR}/env.bash"
 
 echo "I ALSO NEED TO DOWNLOAD ENS XML"
 exit()

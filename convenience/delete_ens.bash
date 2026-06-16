@@ -7,8 +7,8 @@
 # Delete ens XML from MDC. You'll need the token from get_token.bash
 # 
 
-source "$(dirname "$0")/../env.bash"
-source convenience.bash
+source "${HOTQCDPACKER_DIR}/env.bash"
+source "${HOTQCDPACKER_DIR}/convenience/convenience.bash"
 
 MC="$1"
 

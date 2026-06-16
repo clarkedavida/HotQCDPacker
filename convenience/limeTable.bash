@@ -9,8 +9,8 @@
 # per entry to limeTable.txt.
 #
 
-source "$(dirname "$0")/../env.bash"
-source convenience.bash
+source "${HOTQCDPACKER_DIR}/env.bash"
+source "${HOTQCDPACKER_DIR}/convenience/convenience.bash"
 
 OUTFILE="limeTable.txt"
 PAGE_SIZE=100

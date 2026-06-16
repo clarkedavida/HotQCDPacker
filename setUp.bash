@@ -28,9 +28,20 @@ echo "    Download ILDG-client?    ${INSTALLILDGSERVICE}"
 echo " (Folders can be adjusted in env.bash)"
 echo
 
-read -p "This will install using the above settings. Is that okay? (Y/y to proceed.) "
+read -p "This will install using the above settings. It will also export a HOTQCDPACKER_DIR to the bashrc. Is that okay? (Y/y to proceed.) "
 if ! [[ $REPLY =~ [Yy]$ ]]; then
     exit
+fi
+
+# Written by Claude. Export HOTQCDPACKER_DIR to ~/.bashrc so upload/download scripts can be run from anywhere.
+if ! grep -q "HOTQCDPACKER_DIR" ~/.bashrc; then
+    echo "" >> ~/.bashrc
+    echo "# HotQCDPacker" >> ~/.bashrc
+    echo "export HOTQCDPACKER_DIR=\"${CURRENTDIR}\"" >> ~/.bashrc
+    echo "    Added HOTQCDPACKER_DIR to ~/.bashrc. Please re-source or open a new terminal."
+else
+    sed -i "s|^export HOTQCDPACKER_DIR=.*|export HOTQCDPACKER_DIR=\"${CURRENTDIR}\"|" ~/.bashrc
+    echo "    Updated HOTQCDPACKER_DIR in ~/.bashrc. Please re-source or open a new terminal."
 fi
 
 # Written by Claude. Sorry that it's hard to read.

@@ -7,8 +7,8 @@
 # Get the SURL of conf with supplied LFN 
 #
 
-source "$(dirname "$0")/../env.bash"
-source convenience.bash
+source "${HOTQCDPACKER_DIR}/env.bash"
+source "${HOTQCDPACKER_DIR}/convenience/convenience.bash"
 
 LFN="$1"
 
