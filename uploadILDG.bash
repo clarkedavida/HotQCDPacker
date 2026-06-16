@@ -9,8 +9,7 @@
 #
 
 source env.bash
-
-UPLOADENSEMBLE=false
+source "${bashToolsPath}/bashTools.bash"
 
 # Get limeXML from user.
 if [ -z "$1" ]; then
@@ -34,17 +33,22 @@ for var in LFN ENS ENSXML LIME SURL; do
     fi
 done
 
-
 # Upload ensemble. This will only work the first time. After that
 # this does nothing, because the XML already exists
 ${ILDGMDC} -ie ${ENSXML}
 
 # Upload lime XML
+_bashInfo "upload XML"
 ${ILDGMDC} -ic ${LIMEXML}
+_checkForFail $? "upload lime XML"
 
 # Upload lime file
-${ILDGSE} -put ${LIME} ${SURL}
+_bashInfo "upload lime"
+time ${ILDGSE} -put ${LIME} ${SURL}
+_checkForFail $? "upload lime"
 
 # Link LFN to SURL
+_bashInfo "link LFN and SURL"
 ${ILDGFC} -i ${LFN} ${SURL}
+_checkForFail $? "link LFN and SURL"
 
