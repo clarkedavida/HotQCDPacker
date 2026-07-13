@@ -12,17 +12,22 @@
 
 source "${HOTQCDPACKER_DIR}/env.bash"
 
-echo "I ALSO NEED TO DOWNLOAD ENS XML"
-exit()
-
 LFN="$1"
 
 if [ -z "${LFN}" ]; then
     echo "Please set LFN"
 fi
 
+MC="${LFN%/*}"
+MC="mc://${MC#lfn://}"
+
+ENSXML="${MC##*/}".xml
+
 LIME=$(basename "${LFN}")
 LIMEXML="${LIME%.lime}".xml
+
+# Download the ens xml
+${ILDGMDC} -o "${ENSXML}" -fmt -ge "${MC}"
 
 # Download the lime xml
 ${ILDGMDC} -o "${LIMEXML}" -fmt -gc "${LFN}"
