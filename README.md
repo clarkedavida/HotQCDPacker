@@ -66,6 +66,8 @@ bash downloadILDG.bash <LFN>
 ```
 
 ## How was this tested?
+
+### First test (May 2026)
 I checked that all 14 NERSC configurations in
 ```
 l6420f21b7570m003946m01973_1_10010to10140
@@ -79,6 +81,13 @@ survived this round trip:
 5. `diff` between all unpacked and original configurations
 
 All configurations are the same according to this.
+
+### Second test (16 June 2026)
+After uploading all ensembles from the `f21_highTspf` project,
+I tried `downloadILDG.bash` then `unpackILDG.py` on 
+`l6420f21b7570m003946m01973/9_2870to3710.lime`. I then compiled
+`checkConf` of `SIMULATeQCD` and ran it on the configurations
+in the lime file. All configurations were readable and correct.
 
 ## Are the configurations ILDG-compliant?
 They should be. The code assumes input configurations are in NERSC format, which
